@@ -1,0 +1,501 @@
+/* Overall Code Styles */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body:not(.dark-mode){
+    --primary-color: black;
+    --secondary-color: #69ffcc;
+    --tertiary-color: #151115;
+    --icon: url(/images/moon.png);
+    --clock: url(/images/comingsoonclock.png);
+    --battery: url(/images/battery.png);
+}
+
+.dark-mode{
+    --primary-color: #9900ff;
+    --secondary-color: black;
+    --tertiary-color: #9000F0;
+    --icon: url(/images/sun.png);
+    --clock: url(/images/altcomingsoonclock.png);
+    --battery: url(/images/altbattery.png);
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-color);
+    animation: transitionOut 2s;
+    animation: transitionIn 1s;
+}
+
+@keyframes transitionOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity:0;
+    }
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+/* Header Code Styles */
+header {
+    height: 80px;
+    width: 100%;
+    background: var(--primary-color);
+    position: fixed;
+    z-index: 100;
+    opacity: 1;
+}
+
+.navbar{
+    width: 100%;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.title {
+    color: var(--secondary-color);
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 1%;
+    transition: font-size 0.4s;
+    font-size: larger;
+}
+
+.nav-links li{
+    display: inline-block;
+    list-style: none;
+    margin: 30px;
+    transition: margin 0.4s;
+}
+
+.nav-links li a{
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: 'Nunito Sans', sans-serif;
+    position:relative;
+    transition: font-size 0.4s;
+}
+
+.nav-links li a::after{
+    content: '';
+    background: var(--secondary-color);
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+
+.nav-links li a:hover::after{
+    width: 100%;
+}
+
+@media(max-width: 900px){
+
+    .title {
+        color: var(--secondary-color);
+        font-family: 'Nunito Sans', sans-serif;
+        padding-left: 1%;
+        font-size: 22px;
+        transition: font-size 0.4s;
+    }
+
+    .nav-links li{
+        display: inline-block;
+        list-style: none;
+        margin: 10px;
+        transition: margin 0.4s;
+    }
+    
+    .nav-links li a{
+        text-decoration: none;
+        color: var(--secondary-color);
+        font-family: 'Nunito Sans', sans-serif;
+        position:relative;
+        font-size: 10px;
+        transition: font-size 0.4s;
+    }
+}
+
+/* Clock Code Styles */
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:420px;
+    padding-bottom:350px;
+    background-color: var(--secondary-color);
+}
+
+.clockframe {
+    width: 600px;
+    height: 600px;
+    z-index: 1;
+    position: absolute;
+    background-image: var(--clock);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.4s;
+}
+
+.second-hand {
+    position: relative;
+    z-index: 2;
+    transform: rotate(180deg);
+}
+
+.second-hand .hand {
+    z-index: 2;
+    height:200px;
+    padding: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: -2px;
+    border-radius: 2px;
+    transition: height 0.4s;
+}
+
+.minute-hand {
+    position: relative;
+    z-index: 2;
+    transform: rotate(180deg);
+}
+
+.minute-hand .hand {
+    z-index: 2;
+    height:125px;
+    padding: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    border-radius: 2px;
+    left: -2px;
+}
+
+.center {
+    width: 6px;
+    height: 6px;
+    padding: 6px;
+    background-color: var(--primary-color);
+    position: absolute;
+    border-radius: 6px;
+    z-index: 10;
+}
+
+@media(max-width: 900px){
+    .clock {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top:420px;
+        padding-bottom:350px;
+        background-color: var(--secondary-color);
+    }
+
+    .clockframe {
+        width: 400px;
+        height: 400px;
+        z-index: 1;
+        position: absolute;
+        background-image: var(--clock);
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: all 0.4s;
+    }
+
+    .second-hand .hand {
+        z-index: 2;
+        height:130px;
+        padding: 2px;
+        background-color: var(--primary-color);
+        position: absolute;
+        left: -2px;
+        border-radius: 2px;
+        transition: height 0.4s;
+        transform: rotate(180deg);
+    }
+
+    .minute-hand .hand {
+        z-index: 2;
+        height:80px;
+        padding: 2px;
+        background-color: var(--primary-color);
+        position: absolute;
+        border-radius: 2px;
+        left: -2px;
+        transition: height 0.4s;
+        transform: rotate(180deg);
+    }
+}
+
+/* Dark Mode */
+#icon {
+    height: 30px;
+    cursor: pointer;
+    z-index: 105;
+    width: 30px;
+    margin: 10px auto;
+    border: 1px solid var(--color);
+    background-image: var(--icon);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav ul {
+    text-align: right;
+    flex: 1;
+}
+
+/* Going Down Code Styles */
+.downies{
+    background-image: linear-gradient(var(--secondary-color),var(--primary-color));
+    height:900px;
+}
+
+.motto {
+    padding-top: 80px;
+    padding-bottom: 100px;
+    transition: scale 2s;
+}
+
+.hidden {
+    opacity: 0;
+    filter:blur(10px);
+    transform: translateX(-100%);
+    transition: all 2s;
+    padding-bottom: 70px;
+    transform: rotate(40deg);
+    color: var(--primary-color);
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0%);
+}
+
+.godown {
+    transform: translateY(-90px);
+    transition: translateY 0.4s;
+}
+
+@media(max-width:900px) {
+    .motto {
+        padding-top: 80px;
+        padding-bottom: 100px;
+        transition: scale 2s;
+    }
+    .godown {
+        transform: translateY(-100px);
+        transition: translateY 0.4s;
+    }
+    .hidden {
+        padding-bottom: 30px;
+    }
+}
+
+/* AlmostDown Code Styles */
+#almostdown {
+    background-color: var(--primary-color);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#battery { 
+    width: 600px;
+    height: 294px;
+    z-index: 1;
+    transition: all 0.4s;
+    position:absolute;
+    transform: translateY(-250px) translateX(20px);
+    background-image: var(--battery);
+    background-size: cover;
+    background-repeat: no-repeat;
+    scale: 0.7;
+}
+
+.ftrs {
+    color: var(--primary-color);
+}
+
+.page-links .abt {
+    color: var(--secondary-color);
+}
+
+.page-links li{
+    display: inline-block;
+    list-style: none;
+    z-index: 2;
+    position: relative;
+    font-size: 50px;
+    transition: all 0.4s;
+    transform: translateX(-29px) translateY(-250px);
+    scale: 0.7;
+    margin-left: -25px;
+    margin-right: -25px;
+
+}
+.page-links li a{
+    text-decoration: none;
+}
+
+.page-links .abt::after{
+    content: '';
+    background: var(--secondary-color);
+    width: 0;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s;
+}
+
+.page-links .ftrs::after{
+    content: '';
+    background: var(--primary-color);
+    width: 0;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s;
+}
+
+.page-links li a:hover::after{
+    width: 100%;
+    
+}
+
+@media(max-width:900px) {
+    #battery { 
+        z-index: 1;
+        transform: translateY(-150px);
+        transition: all 0.4s;
+        width: 400px;
+        height: 196px;
+
+    }
+
+    .page-links li{
+        display: inline-block;
+        list-style: none;
+        z-index: 2;
+        position: relative;
+        margin: 10px;
+        font-size: 33px;
+        transform: translateX(-33px) translateY(-150px);
+        transition: all 0.4s;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+}
+
+/* Down Code Styles */
+.use{
+    transform: translateY(-50px);
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+#sub{
+    transition: all 0.4s;
+    padding-bottom: 10px;
+    transform: translateY(-50px) ;
+}
+
+form{
+    background: var(--tertiary-color);
+    display:flex;
+    width:fit-content;
+    border-radius: 10px;
+    transition: all 0.4s;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-50px) ;
+}
+
+form input {
+    border: 0;
+    background: var(--tertiary-color);
+    outline: none;
+    padding: 10px 20px;
+    height: 60px;
+    width: 400px;
+    font-size: 16px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 0.4s;
+    color: var(--secondary-color);
+}
+
+form input::placeholder{
+    color: #444444;
+}
+
+form button{
+    background: var(--secondary-color);
+    border:2px;
+    outline:none;
+    height:60px;
+    width: 100px;
+    cursor:pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all 0.4s;
+}
+
+span {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--secondary-color);
+    transition: all 0.7s;
+}
+
+@media(max-width:900px) {
+    form input {
+        border: 0;
+        outline: none;
+        padding: 10px 20px;
+        height: 60px;
+        width: 240px;
+        font-size: 16px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        transition: all 0.4s;
+    }
+    
+    form button{
+        background-color: var(--secondary-color);
+        border:2px;
+        outline:none;
+        height:60px;
+        width: 90px;
+        cursor:pointer;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        transition: all 0.4s;
+    }
+}

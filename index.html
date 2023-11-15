@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexstyle.css">
+    <link rel="shortcut icon" href="images/favicon.ico" id = "fav">
+    <title>InPower</title>
+    <script src="themelogic.js"></script>
+
+</head> 
+
+<body onload="onload()"> 
+    
+    <header>
+        <nav class="navbar">
+            <b><p class="title">INPOWER</p></b>
+            <ul class="nav-links">
+                <li><b><a href="/index.html#itop">CLOCK</a></b></li>
+                <li><b><a href="/features.html#ftop">FEATURES</a></b></li>
+                <li><b><a href="/about.html#atop">ABOUT US</a></b></li>
+                <li><b><a href="/index.html#idown">SIGN-UP</a></b></li>
+            </ul>
+            <div class="container-image" id="icon" onclick="darkmode()"></div>
+        </nav>    
+    </header>
+
+    <section style="text-align: center;" class="clock" id="itop">  
+        <div class="clockframe" id="clockframe"></div>
+        <div class="second-hand" id="second-hand">
+            <div class="hand"></div>
+        </div>
+        <div class="minute-hand" id="minute-hand">
+            <div class="hand"></div>
+        </div>
+        <div class="center"></div>
+    </section>
+
+    <section class="downies">
+        <div style="text-align: center;" class="motto">
+            <h5 style= "font-size:30px" class = "hidden" id="h5">FORTIFY YOUR MIND.</h5>
+            <h3 style= "font-size:60px" class = "hidden" id="h3">SCULPT YOUR BODY.</h3>
+            <h1 style= "font-size:90px" class = "hidden" id="h1">AWAKEN YOUR SOUL.</h1>
+        </div>
+        <div style="text-align: center;" class="godown">
+            <B><p style= "font-size:28px" class = "hidden">IT'S YOUR LIFE, <br> YOU'RE IN POWER!</p></B>
+        </div>
+    </section>
+    
+    <section style="text-align: center;" id="almostdown">
+            <div id="battery"></div>
+            <ul class = "page-links">
+                <li><b><a href="/features.html#ftop" class="ftrs">FEATURES</a></b></li>
+                <li><b><a href="/about.html#atop" class="abt">ABOUT</a></b></li>
+            </ul>   
+    </section>
+
+    <section id="idown">
+        <div class="use">
+            <b><p style="color:var(--secondary-color);" id="sub">SIGN-UP FOR UPDATES</p></b>
+            <form name="submit-to-google-sheet">
+                <input type="email" name="Email" placeholder="Your email address" required>
+                <button type="submit"><img src="images/sendicon.png" width="50px" id="sendicon"></button>
+            </form>
+            <span id="msg"></span>
+        </div>
+    </section>
+    
+    <script src="sheetlogic.js"></script>
+    <script src="clocklogic.js"></script>
+    <script defer src="ani.js"></script>
+
+</body>
+
+</html>

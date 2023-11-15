@@ -1,0 +1,332 @@
+/* Overall Code Styles */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body:not(.dark-mode){
+    --primary-color: black;
+    --secondary-color: #69ffcc;
+    --tertiary-color: #191919;
+    --quarternary-color: #69ffcc;
+    --icon: url(/images/moon.png);
+    --about-logo: url(/images/revlogo.png);
+}
+
+.dark-mode{
+    --primary-color: #9900ff;
+    --secondary-color: black;
+    --tertiary-color: #9000F0;
+    --quarternary-color: #9900ff;
+    --icon: url(/images/sun.png);
+    --about-logo: url(/images/altlogo.png);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--secondary-color); 
+    animation: transitionOut 2s;
+    animation: transitionIn 1s;
+}
+
+@keyframes transitionOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity:0;
+    }
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+
+/* Header Code Styles */
+header {
+    height: 80px;
+    width: 100%;
+    background: var(--primary-color);
+    position: fixed;
+    z-index: 100;
+    opacity: 1;
+
+}
+
+.navbar{
+    width: 100%;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.title {
+    color: var(--secondary-color);
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 1%;
+    transition: font-size 0.4s;
+    font-size: larger;
+}
+
+.nav-links li{
+    display: inline-block;
+    list-style: none;
+    margin: 30px;
+    transition: margin 0.4s;
+}
+
+.nav-links li a{
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: 'Nunito Sans', sans-serif;
+    position:relative;
+    transition: font-size 0.4s;
+}
+
+.nav-links li a::after{
+    content: '';
+    background: var(--secondary-color);
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s;
+}
+
+.nav-links li a:hover::after{
+    width: 100%;
+}
+
+@media(max-width: 900px){
+
+    .title {
+        color: var(--secondary-color);
+        font-family: 'Nunito Sans', sans-serif;
+        padding-left: 1%;
+        font-size: 22px;
+        transition: font-size 0.4s;
+    }
+
+    .nav-links li{
+        display: inline-block;
+        list-style: none;
+        margin: 10px;
+        transition: margin 0.4s;
+    }
+    
+    .nav-links li a{
+        text-decoration: none;
+        color: var(--secondary-color);
+        font-family: 'Nunito Sans', sans-serif;
+        position:relative;
+        font-size: 10px;
+        transition: font-size 0.4s;
+    }
+}
+
+/* Dark Mode */
+#icon {
+    height: 30px;
+    cursor: pointer;
+    z-index: 105;
+    width: 30px;
+    margin: 10px auto;
+    border: 1px solid var(--color);
+    background-image: var(--icon);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav ul {
+    text-align: right;
+    flex: 1;
+}
+
+/* Down About Page */
+.downaboutpage {
+    background-image: linear-gradient(var(--primary-color),var(--secondary-color));
+    height: 1500px;
+}
+
+.abouttitle{
+    color: var(--secondary-color);
+    transition: all 0.4s;
+    transform: translateY(140px);
+    font-size: 30px;
+}
+
+.mvv {
+    display: flex;
+    justify-content: space-around;
+    transition: all 0.4s;
+}
+
+.mvv div{
+    transform: translateY(250px);
+    background-color: black;
+    color: var(--quarternary-color);
+    height: 360px;
+    width: 250px;
+    border-radius: 60px;
+    transition: all 0.4s;
+}
+
+.mvv div h1{
+    padding-top: 40px;
+}
+
+.mvv p{
+    padding:20px;
+    font-size: large;
+    line-height: 1.5;
+}
+
+.mvv .mission {
+    height: 200px;
+    transform: translateY(190px);
+}
+
+
+.aboutlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    transform: translateX(10px) translateY(10px);
+    transition: all 0.4s;
+}
+
+@media(max-width: 900px){
+
+    .downaboutpage {
+        background-image: linear-gradient(var(--primary-color),var(--secondary-color));
+        height: 1440px;
+    } 
+    .abouttitle{
+        color: var(--secondary-color);
+        transition: all 0.4s;
+        transform: translateY(150px);
+        font-size: 25px;
+    }
+
+    .mvv {
+        display: flex;
+        justify-content: space-around;
+        transform: translateY(-30px);
+        transition: all 0.4s;
+    }
+    
+    .mvv div{
+        transform: translateY(270px);
+        background-color: black;
+        color: var(--quarternary-color);
+        height: 320px;
+        width:120px;
+        border-radius: 30px;
+        transition: all 0.4s;
+    }
+    
+    .mvv div h1{
+        padding-top: 30px;
+        font-size:medium;
+    }
+    
+    .mvv p{
+        padding:10px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .mvv .mission {
+        height: 170px;
+        transform: translateY(230px);
+    }
+
+    .aboutlogo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        transform: translateX(7px) translateY(20px);
+        transition: all 0.4s;
+    }
+}
+
+/* Purpose About Page */
+.purpose{
+    padding-top: 140px;
+}
+
+.purposetitle{
+    color: var(--quarternary-color);    
+    text-align: center;
+    font-size: 30px;
+    transition: all 0.4s;
+}
+
+.purposetext {
+    text-align: center;
+    padding-top: 25px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 850px;
+    height: 540px;
+    font-size: 20px;
+    color: var(--quarternary-color);
+    background-color: black;
+    border-radius: 50px;
+    transform: translateY(15px);
+    transition: all 0.4s;
+    line-height: 30px;
+}
+
+@media (max-width: 900px){
+    .purpose{
+        transform: translateY(50px);
+    }
+
+    .purposetitle{
+        color: var(--quarternary-color);    
+        text-align: center;
+        font-size: 25px;
+        transition: all 0.4s;
+    }
+    
+    .purposetext {
+        text-align: center;
+        padding-top: 25px;
+        padding-right: 20px;
+        padding-left: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 450px;
+        height: 610px;
+        font-size: 13px;
+        color: var(--quarternary-color);
+        background-color: black;
+        border-radius: 50px;
+        transform: translateY(15px);
+        transition: all 0.4s;
+        line-height: 30px;
+    }
+}
